@@ -1,11 +1,11 @@
 # Build
 
-## Mbed TLS Library
+**1. Mbed TLS Library**
 
 Build the Mbed TLS lib for the desired platform. Instructions here: https://github.com/ARMmbed/mbedtls
 Once built, run `cp cp mbedtls-2.7.0/library/libmbedtls.a ngrok-c/libpolarssl-linux.a` to copy Mbed TLS lib (formerly Polar SSL) into the `ngrok-c` build directory. The build script is looking for `libpolarssl-linux.a` in the root dir.
 
-## ngrok-c
+**2. ngrok-c**
 
 Instructions below are for Linux. For OSX, Windows, and others see: https://github.com/dosgo/ngrok-c
 
@@ -18,7 +18,7 @@ This will produce an `ngrokc` executable in the `bin` directory.
 
 # Usage
 
-## Server (`ngrokd`)
+### Server (`ngrokd`)
 
 Instructions are for self-hosted `ngrok`.
 
@@ -29,7 +29,7 @@ Run the server without specifying any SSL certs, but do specify a password of yo
 ngrokd -domain="yourdomain.com" -pass="password"
 ```
 
-# Client (HTTP/HTTPS/WebSocket)
+### Client (HTTP/HTTPS/WebSocket)
 
 ```
 ngrokc -SER[Shost:yourdomain.com,Sport:4443,Password:password] -AddTun[Type:https,Lhost:127.0.0.1,Lport:80,Sdname:subdomain]
